@@ -1,0 +1,13 @@
+{% extends 'comments/base.html' %} 
+
+{% block content %} 
+
+    <form method='post' action="{% url 'users:register' %}">
+        {% csrf_token %} 
+        {{ form.as_p }} 
+
+        <button class="btn btn-outline-primary btn-lg" name='submit'>Sign Up</button>
+        <input type="hidden" name='next' value="{% url 'comments:index' %}" />
+    </form>
+
+{% endblock content %}

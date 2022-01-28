@@ -1,0 +1,25 @@
+{% extends "comments/base.html" %} 
+
+{% block content %}
+    {% if user.is_authenticated %} 
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome, {{ user.username }}!</h1><br><br>
+
+            <a class="btn btn-lg btn-primary" href="{% url 'comments:calc_login' %}" role="button">Use edRemark</a>
+            <a class="btn btn-lg btn-primary" href="{% url 'comments:options' %}" role="button">User options</a>
+            <a class="btn btn-lg btn-primary" href="{% url 'comments:how_to' %}" role="button">How To</a>
+        </div>
+    {% else %}
+        <div class="jumbotron">
+            <h1 class="display-3">Commenting made simple</h1>
+
+            <p class="lead">Write narrative comments that are insightful and personalized. 
+                Create your own comment options, or use our powerful defaults. 
+                Spend less time writing, and more time teaching.
+            </p><br>
+
+            <a class="btn btn-lg btn-primary" href="{% url 'comments:calc_nologin' %}" role="button">Try edRemark</a>
+            <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Sign Up</a>
+        </div>
+    {% endif %}
+{% endblock content %}

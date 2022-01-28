@@ -1,0 +1,12 @@
+{% extends 'comments/base.html' %} 
+
+{% block content %} 
+<p>Add a new option:</p>
+
+<form action="{% url 'comments:new_option' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-primary btn-lg" name='submit'>Add option</button>
+</form>
+
+{% endblock content %} 

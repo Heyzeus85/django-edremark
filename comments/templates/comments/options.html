@@ -1,0 +1,49 @@
+{% extends 'comments/base.html' %} 
+
+{% block content %} 
+
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-4">
+            <a href="{% url 'comments:new_option' %}"><button class="btn btn-outline-primary btn-lg">Add a new option</button></a>
+        </div>
+    </div><br><br>
+    <div class="row">
+        <div class="col">
+            <h5>Strength</h5><br>
+            <ul class="list-group">
+                {% for option in options %}
+                    {% if option.kind == 'strength' %}
+                        <li class="list-group-item"><a href="{% url 'comments:option' option.id %}">{{ option }}</a></li>
+                    {% endif %} 
+                {% endfor %} 
+            </ul>
+        </div>
+        <div class="col">
+            <h5>Improve</h5><br>
+            <ul class="list-group">
+                {% for option in options %}
+                    {% if option.kind == 'improve' %}
+                    <li class="list-group-item"><a href="{% url 'comments:option' option.id %}">{{ option }}</a></li>
+                    {% endif %} 
+                {% endfor %} 
+            </ul>
+        </div>
+        <div class="col">
+            <h5>Recommendations</h5><br>
+            <ul class="list-group">
+                {% for option in options %}
+                    {% if option.kind == 'recommend' %}
+                    <li class="list-group-item"><a href="{% url 'comments:option' option.id %}">{{ option }}</a></li>
+                    {% endif %} 
+                {% endfor %} 
+            </ul>
+        </div>
+    </div><br><br>
+
+    
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,137 @@
+{% extends "comments/base.html" %} 
+
+{% block content %}
+
+    {% load static %}
+
+    <form onsubmit="writeComment(event)">
+        <div class="container">
+            <h4>Student Info</h4><br>
+            <div class="row">
+                <div class="col">
+                    <label for="name">Student name:</label><br>
+                    <input class="form-control" type="text" id="name" name="name" required>
+                </div>
+                <div class="col">
+                    <label for="pronouns">Student pronouns:</label><br>
+                    <select class="form-control" name="pronouns" id="pronouns" required>
+                        <option value="he">he/his</option>
+                        <option value="she">she/her</option>
+                        <option value="they">they/their</option>
+                    </select>
+                </div>
+            </div><br><br>
+            <div class="row">
+                <div class="col">
+                    <label for="schoolClass">Class:</label><br>
+                    <input class="form-control" type="text" id="schoolClass" name="schoolClass" required>
+                </div>
+                <div class="col">
+                    <label for="marking period">Marking Period Type:</label><br>
+                    <select class="form-control" name="marking period" id="marking period" required>
+                        <option value="quarter">Quarter</option>
+                        <option value="trimester">Trimester</option>
+                        <option value="semester">Semester</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="term">School Year Term</label><br>
+                    <select class="form-control" name="term" id="term" required>
+                        <option value="first">First</option>
+                        <option value="second">Second</option>
+                        <option value="third">Third</option>
+                    </select>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="container">
+            <h4>Student Evaluation</h4><br>
+            <div class="row">
+                <div class="col">
+                    <label for="strength1">First area of strength:</label><br>
+                    <select class="form-control" name="strength1" id="strength1">
+                        {% for option in options %}
+                            {% if option.kind == 'strength' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="strength2">Second area of strength:</label><br>
+                    <select class="form-control" name="strength2" id="strength2">
+                        <option value="none"></option>
+                        {% for option in options %}
+                            {% if option.kind == 'strength' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label for="improve1">First area that needs improvement:</label><br>
+                    <select class="form-control" name="improve1" id="improve1">
+                        {% for option in options %}
+                            {% if option.kind == 'improve' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="improve2">Second area that needs improvement:</label><br>
+                    <select class="form-control" name="improve2" id="improve2">
+                        <option value="none"></option>
+                        {% for option in options %}
+                            {% if option.kind == 'improve' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label for="recommend1">First recommendation:</label><br>
+                    <select class="form-control" name="recommend1" id="recommend1">
+                        {% for option in options %}
+                            {% if option.kind == 'recommend' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="recommend2">Second recommendation:</label><br>
+                    <select class="form-control" name="recommend2" id="recommend2">
+                        <option value="none"></option>
+                        {% for option in options %}
+                            {% if option.kind == 'recommend' %} 
+                                <option value='{{ option.name }}'>{{ option.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-primary btn-lg form-control" type="submit">Submit</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-primary btn-lg form-control" type="reset">Reset</button><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-gradient-light">
+                <span class="text-center" id='result' />
+            </div>
+        </div>
+    </form>
+
+    <script src="{% static 'js/myscript.js' %}"></script>
+     
+
+{% endblock content %}

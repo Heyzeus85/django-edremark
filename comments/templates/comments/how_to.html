@@ -1,0 +1,45 @@
+{% extends 'comments/base.html' %} 
+
+{% block content %} 
+
+{% load static %}
+
+<h3>How To Use edRemark</h3><br>
+
+<p>
+    edRemark uses inputs from a form to generate a narrative comment that can be used in grade reports. 
+    Users without an account can only use the default options provided. Users with an account can create, edit and delete
+    their own comment options, to generate fully customized comments. Only you will have access to custom comment options you create.
+</p>
+<p>
+    Comment options can be created for the following uses: to highlight a student <strong>strength</strong>, to note 
+    where a student needs to <strong>improve</strong>, or to <strong>recommend</strong> a particular course of action.
+</p>
+<p>
+    As can be seen in the screenshot below, an option has three components: the <strong>name</strong> of the option, 
+    the <strong>kind</strong> of option, and the <strong>text</strong> for the option that will appear in the comment:
+</p><br>
+<img src="{% static 'images/option.png' %}" alt="Sample option card" style="width: 450px; height: auto; border: 1px solid blue;"><br><br>
+<p>
+    The option name will be what shows up on the comment generator form in the dropdown menu. It should be either one or at most
+    two or three words long, as it is a title. For possibilities, see the default user options.
+</p>
+<p>
+    As noted above, there are three 'kinds' for comment options: strength, improve and recommend. Please note that for any given
+    'strength' option, there should a corresponding 'improve', so that you can comment on a student attribute either as something
+    a particular student is doing well at, or as an area that a student needs to improve on. For example, the default user option 
+    'Participation' has both a strength and an improve version, with different text. 
+</p>
+<p>
+    When writing the text of the option, note that it should be a sentence fragment that doesn't have names or pronouns, as these
+    are chosen with each form entry. For example, the option text should not read 'He completes his assignments on time' because
+    then it could not be used for a student whose pronoun is 'they'. Instead, the text should be 'completes assignments on time' so 
+    that it can be preceded by the pronoun provided by the form.
+</p>
+<p>
+    Finally, specifically for 'recommend' options, the sentence fragment should be written in subjunctive mood, in other words 
+    be able to complete a sentence that begins with "I recommend that so and so...". Again, see the default options for examples. 
+</p>
+
+
+{% endblock content %}
