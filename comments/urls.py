@@ -5,6 +5,8 @@ from . import views
 app_name = 'comments'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('default_options/', views.default_options, name='default_options'),
+    path('default_option/', views.default_option, name='default_option'),
     path('options/', views.options, name='options'),
     path('options/<int:option_id>/', views.option, name='option'),
     path('new_option/', views.new_option, name='new_option'),
