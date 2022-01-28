@@ -1,7 +1,7 @@
 function writeComment(event) {
     event.preventDefault();
 
-    fetch('http://localhost:8000/api/options/').then(response => response.json()).then(data => composeComment(data));
+    fetch('https://morning-savannah-72916.herokuapp.com/api/options/').then(response => response.json()).then(data => composeComment(data));
 
     function composeComment(data) {
         let name = document.getElementById('name').value;
