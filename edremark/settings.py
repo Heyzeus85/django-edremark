@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '1ju**&u$z-c^%^jyil7b$1-5j*h+33
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
-    'morning-savannah-72916.herokuapp.com',
+    'edremark.herokuapp.com',
 ]
 
 
@@ -140,7 +140,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
-     'https://morning-savannah-72916.herokuapp.com',
+     'edremark.herokuapp.com',
 ]
 
 SECURE_HSTS_SECONDS = 86400  # 1 day
