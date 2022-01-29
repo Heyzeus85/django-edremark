@@ -33,8 +33,6 @@ def default_options(request):
 @login_required
 def default_option(request, option_id):
     option = Option.objects.get(id=option_id)
-    if option.owner != request.user:
-        raise Http404
     context = {'option': option}
     return render(request, 'comments/default_option.html', context)
 
