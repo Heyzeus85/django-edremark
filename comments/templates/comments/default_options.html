@@ -7,9 +7,9 @@
         <div class="col">
             <h5>Strength</h5><br>
             <ul class="list-group">
-                {% for default_option in default_options %}
-                    {% if default_option.kind == 'strength' %}
-                        <li class="list-group-item"><a href="{% url 'comments:default_option' default_option.id %}">{{ default_option }}</a></li>
+                {% for option in options %}
+                    {% if option.kind == 'strength' %}
+                        <li class="list-group-item"><a href="{% url 'comments:default_option' option.id %}">{{ option }}</a></li>
                     {% endif %} 
                 {% endfor %} 
             </ul>
@@ -17,9 +17,9 @@
         <div class="col">
             <h5>Improve</h5><br>
             <ul class="list-group">
-                {% for default_option in default_options %}
-                    {% if default_option.kind == 'improve' %}
-                    <li class="list-group-item"><a href="{% url 'comments:default_option' default_option.id %}">{{ default_option }}</a></li>
+                {% for option in options %}
+                    {% if option.kind == 'improve' %}
+                    <li class="list-group-item"><a href="{% url 'comments:default_option' option.id %}">{{ option }}</a></li>
                     {% endif %} 
                 {% endfor %} 
             </ul>
@@ -27,9 +27,9 @@
         <div class="col">
             <h5>Recommendations</h5><br>
             <ul class="list-group">
-                {% for default_option in default_options %}
+                {% for option in options %}
                     {% if default_option.kind == 'recommend' %}
-                    <li class="list-group-item"><a href="{% url 'comments:default_option' default_option.id %}">{{ default_option }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'comments:default_option' option.id %}">{{ option }}</a></li>
                     {% endif %} 
                 {% endfor %} 
             </ul>

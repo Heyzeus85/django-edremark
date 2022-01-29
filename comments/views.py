@@ -26,13 +26,13 @@ def calc_login(request):
 
 @login_required
 def default_options(request):
-    default_options = Option.objects.filter(owner='1')
-    context = {'default_options': default_options}
+    options = Option.objects.filter(owner='1')
+    context = {'options': options}
     return render(request, 'comments/default_options.html', context)
 
 @login_required
-def default_option(request, default_option_id):
-    option = Option.objects.get(id=default_option_id)
+def default_option(request, option_id):
+    option = Option.objects.get(id=option_id)
     if option.owner != request.user:
         raise Http404
     context = {'option': option}
